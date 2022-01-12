@@ -1,0 +1,48 @@
+﻿@model List<Empleado>
+
+@{ 
+    List<string> oficios = ViewData["OFICIOS"] as List<string>;
+}
+
+<h1>Incremento salarial empleados oficio</h1>
+
+<form method="post">
+    <label>Oficios: </label>
+    <select name="oficio" class="form-control">
+        @foreach (String ofi in oficios)
+            {
+                <option value="@ofi">@ofi</option>
+            }
+    </select>
+    <br/>
+    <label>Incremento salarial: </label>
+    <input type="text" name="incremento" class="form-control" required/>
+    <br/>
+    <button type="submit" class="btn btn-outline-info">
+        Incrementar salarios
+    </button>
+</form>
+<hr/>
+<table class="table table-info">
+    <thead>
+        <tr>
+            <th>Apellido</th>
+            <th>Oficio</th>
+            <th>Fecha Alta</th>
+            <th>Salario</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (Empleado emp in Model)
+            {
+                <tr>
+                    <td>@emp.Apellido</td>
+                    <td>@emp.Oficio</td>
+                    <td>@emp.FechaAlta.ToLongDateString()</td>
+                    <td style="background-color:lightcoral;font-weight:bold">
+                        @emp.Salario
+                    </td>
+                </tr>
+            }
+    </tbody>
+</table>

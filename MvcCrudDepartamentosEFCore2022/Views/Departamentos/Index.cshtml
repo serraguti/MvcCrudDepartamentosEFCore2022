@@ -37,6 +37,12 @@
                 @Html.DisplayFor(modelItem => item.Localidad)
             </td>
             <td>
+                <a asp-controller="Empleados"
+                   asp-action="EmpleadosResumen"
+                   asp-route-iddepartamento="@item.IdDepartamento">
+                    Resumen empleados
+                </a>
+                |
                 <a asp-controller="Departamentos"
                    asp-action="Edit"
                    asp-route-id="@item.IdDepartamento" class="btn btn-info">

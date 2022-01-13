@@ -17,6 +17,21 @@ namespace MvcCrudDepartamentosEFCore2022.Controllers
             this.repo = repo;
         }
 
+        public IActionResult EmpleadosResumen(int iddepartamento)
+        {
+            ResumenEmpleados resumen =
+                this.repo.GetResumenEmpleados(iddepartamento);
+            if (resumen == null)
+            {
+                ViewBag.Mensaje = "No existen empleados en el departamento";
+                return View();
+            }
+            else
+            {
+                return View(resumen);
+            }
+        }
+
         public IActionResult EmpleadosSalario()
         {
             //LA PRIMERA VEZ DEVOLVEMOS TODOS LOS EMPLEADOS

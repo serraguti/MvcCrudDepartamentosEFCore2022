@@ -21,5 +21,7 @@ namespace MvcCrudDepartamentosEFCore2022.Models
         public DateTime FechaAlta { get; set; }
         [Column("SALARIO")]
         public int Salario { get; set; }
+        [Column("DEPT_NO")]
+        public int IdDepartamento { get; set; }
     }
 }
